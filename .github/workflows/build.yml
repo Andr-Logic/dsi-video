@@ -1,7 +1,21 @@
 name: Compila NDS
-
-- name: Diagnostica
-  run: |
-    echo "BLOCKSDS=$BLOCKSDS"
-    find / -name "rom_arm9only" 2>/dev/null || true
-    ls -la /opt /opt/blocksds /opt/wonderful 2>/dev/null || true
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: skylyrac/blocksds:slim-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Diagnostica
+        run: |
+          echo "BLOCKSDS=$BLOCKSDS"
+          find / -name "rom_arm9only" 2>/dev/null || true
+          ls -la /opt /opt/blocksds /opt/wonderful 2>/dev/null || true
+      - name: Compila
+        run: make
+      - name: Salva il file .nds
+        uses: actions/upload-artifact@v4
+        with:
+          name: dsi-video-player
+          path: "*.nds"
