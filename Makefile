@@ -1,4 +1,4 @@
-BLOCKSDS	?= /opt/blocksds/core
+BLOCKSDS := $(shell dirname $$(dirname $$(dirname $$(find / -name rom_arm9only 2>/dev/null | head -n 1))))
 BLOCKSDSEXT	?= /opt/blocksds/external
 
 NAME		:= dsi_video_player
