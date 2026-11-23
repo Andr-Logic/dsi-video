@@ -8,4 +8,4 @@ GAME_SUBTITLE	:= Passo 1 - info video
 LIBS		:= -lnds9
 LIBDIRS		:= $(BLOCKSDS)/libs/libnds
 
-include $(BLOCKSDS)/sys/default_makefiles/rom_arm9only/Makefile
+/opt/blocksds/core/sys/default_makefiles/rom_arm9only/Makefile
