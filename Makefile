@@ -1,11 +1,6 @@
-BLOCKSDS := $(shell dirname $$(dirname $$(dirname $$(find / -name rom_arm9only 2>/dev/null | head -n 1))))
-BLOCKSDSEXT	?= /opt/blocksds/external
-
-NAME		:= dsi_video_player
-GAME_TITLE	:= DSi Video Player
-GAME_SUBTITLE	:= Passo 1 - info video
-
-LIBS		:= -lnds9
-LIBDIRS		:= $(BLOCKSDS)/libs/libnds
-
+BLOCKSDS ?= /opt/blocksds/core
+BLOCKSDSEXT ?= /opt/blocksds/external
+NAME := dsi_video_player
+GAME_TITLE := DSi Video Player
+GAME_SUBTITLE := Passo 1 - info video
 include $(BLOCKSDS)/sys/default_makefiles/rom_arm9only/Makefile
